@@ -2,6 +2,8 @@
 
 This project provides a minimal React template with a clean, modern UI and minimal dependencies.
 
+Note: This workspace also contains a FastAPI backend (`../backend`) for AWS EC2 management and logging. See its README for setup.
+
 ## Features
 
 - **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
