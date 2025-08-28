@@ -1,84 +1,53 @@
-# Lightweight React Template for KAVIA
+# AI Cloud Cost Optimizer - React + Tailwind Frontend
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A modern, responsive React dashboard using Tailwind CSS with three main pages:
+- Dashboard (savings summary, active services, alerts)
+- Scheduler (configure auto start/stop windows)
+- Reports (monthly savings chart + AI recommendation preview)
 
-Note: This workspace also contains a FastAPI backend (`../backend`) for AWS EC2 management and logging. See its README for setup.
-
-## Features
-
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+This workspace also contains a FastAPI backend (`../backend`) for AWS EC2 management and AI recommendations (see backend README for setup). This frontend uses placeholder data and is ready for API integration.
 
 ## Getting Started
 
-In the project directory, you can run:
+Install and run:
 
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```bash
+npm install
+npm start
 ```
 
-### Components
+Build for production:
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+```bash
+npm run build
+```
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+## Tech
 
-## Learn More
+- React 18
+- React Router v6
+- Tailwind CSS 3 (with PostCSS/Autoprefixer)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tailwind
 
-### Code Splitting
+Tailwind is configured via:
+- `tailwind.config.js` (content paths include `./src/**/*.{js,jsx}`)
+- `postcss.config.js` (plugins: tailwindcss, autoprefixer)
+- `src/index.css` uses `@tailwind base; @tailwind components; @tailwind utilities;`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Structure
 
-### Analyzing the Bundle Size
+- `src/components/Layout.js` — App shell with sidebar and header
+- `src/pages/Dashboard.js` — Savings summary, services, alerts
+- `src/pages/Scheduler.js` — Day-wise auto start/stop configuration
+- `src/pages/Reports.js` — Simple bar chart + hourly recommendation grid
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Integration Notes
 
-### Making a Progressive Web App
+- Replace placeholder data with API calls (e.g., fetch from `/ai/recommendation`, `/logs/shutdowns`, etc.)
+- Keep environment variables in `.env` (do not hardcode secrets)
+- Use `fetch` or your preferred client in pages to wire data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© {current_year} Kavia Labs. All rights reserved.
